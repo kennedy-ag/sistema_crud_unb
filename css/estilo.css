@@ -1,0 +1,14 @@
+nav#nav-main{
+	background-color: #7598bb;
+}
+.nav-link:hover{
+	background-color: #5c656d;
+	box-shadow: 2px 0px 4px rgba(0, 0, 0, 0.3);
+}
+#lista-de-letras a{
+	margin: 0.4rem 1rem;
+}
+#cabecalho-tabela{
+	background-color: #7598bb;
+	color: white;
+}
