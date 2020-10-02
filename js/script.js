@@ -51,4 +51,4 @@ function sortTable(table, dir, n) {
 }
 
 var tabela = document.getElementById('tabela');
-sortTable(tabela, 'asc', 0);
+sortTable(tabela, 'desc', 0);
