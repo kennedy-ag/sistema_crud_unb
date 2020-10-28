@@ -9,6 +9,7 @@
 	</head>
 	<body>
 
+		<!-- Barra de navegação -->
 		<nav id="nav-main" class="navbar navbar-expand-lg navbar-dark">
 			<a class="navbar-brand" href="#">UnB</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,6 +37,7 @@
 			</div>
 		</nav>
 
+		<!-- Lista de letras -->
 		<p class="text-center font-weight-bolder m-3">Lista de A a Z</p>
 		<hr>
 		<div id="lista-de-letras" class="text-center p-2">
@@ -70,6 +72,7 @@
 
 		<h4 class="text-center p-2 m-4">Docentes efetivos</h4>
 
+		<!-- Tabela -->
 		<div class="container">
 			<table id="tabela" class="table table-striped">
 				<thead>
@@ -83,11 +86,14 @@
 				<tbody>
 					<?php
 						try {
+							// Conexão com o banco de dados
 						    $conn = new PDO('mysql:host=localhost;dbname=crud', 'root', '');
 						    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+						    // Prepara uma query para ser executada
 						    $consulta = $conn->query("SELECT nome, especialidade, email, lattes FROM professor;");
 
+						    // Percorre todos os registros resultantes da consulta e gera uma linha na tabela
 						    while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
 							    echo "<tr>
 										<td>{$linha['nome']}</td>
@@ -96,6 +102,8 @@
 										<td class='text-center'>{$linha['lattes']}</td>
 									</tr>";
 							}
+
+						// Exibe uma mensagem de erro, caso algo não tenha sido executado corretamente
 						} catch(PDOException $e) {
 						    echo 'ERROR: ' . $e->getMessage();
 						}
@@ -104,7 +112,7 @@
 			</table>
 		</div>
 
-
+		<!-- Janela para inserir dados -->
 		<div class="modal fade" id="modal-inserir" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -140,7 +148,7 @@
 			</div>
 		</div>
 
-
+		<!-- Janela para atualizar dados -->
 		<div class="modal fade" id="modal-atualizar" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -193,7 +201,7 @@
 			</div>
 		</div>
 
-
+		<!-- Janela para excluir dados -->
 		<div class="modal fade" id="modal-excluir" tabindex="-1" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -217,7 +225,7 @@
 			</div>
 		</div>
 
-
+		<!-- Javascript utilizado no desenvolvimento -->
 		<script src="lib/js/jquery.min.js"></script>
 		<script src="lib/js/bootstrap.bundle.min.js"></script>
 		<script src="js/script.js"></script>
